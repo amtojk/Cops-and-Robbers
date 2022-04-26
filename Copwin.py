@@ -3,8 +3,7 @@
 #### This algorithm inspired by the code by Jeremie Turcotte, see https://github.com/tjeremie/Cops-and-robbers/blob/master/Cop%20number/Dismantlable_graphs.wl
 #### This code uses the equivalence relation between cop-win and dismantlable graphs, see Theorem 1.1 in https://math.ryerson.ca/~pralat/papers/2012_cop-win.pdf
 #### The code begins on line 11
-#### Lines 11-28 are from https://python-course.eu/examples/graph2.py 
-
+#### Lines 11-27 are from https://python-course.eu/examples/graph2.py 
 
 
 
@@ -26,26 +25,6 @@ class Graph(object):
     def all_vertices(self):
         """ returns the vertices of a graph as a set """
         return set(self._graph_dict.keys())
-   
-   
-    def find_subset(self, start_vertex, end_vertex, path=[]):
-        """ find all paths from start_vertex to
-            end_vertex in graph """
-        graph = self._graph_dict
-        path = path + [start_vertex]
-        if start_vertex == end_vertex:
-            return [path]
-        if start_vertex not in graph:
-            return []
-        paths = []
-        for vertex in graph[start_vertex]:
-            if vertex not in path:
-                extended_paths = self.find_all_paths(vertex,
-                                                     end_vertex,
-                                                     path)
-                for p in extended_paths:
-                    paths.append(p)
-        return paths
        
     def neighbourhood(self, start_vertex, neighbourhood=[]):
         graph=self._graph_dict
@@ -54,38 +33,12 @@ class Graph(object):
             if start_vertex==key:
                 return list(graph[start_vertex])+neighbourhood
         print("No corresponding value found! Initiating return...")
-        return None
-    
-    def del_vertex(self, k):
-        for i in range(self.V):
-            temp=self.graph[i]
-            if i==k:
-                while temp:
-                    self.graph[i]=temp.next
-                    temp=self.graph[i]
-            # Delete the vertex 
-            # using linked list concept        
-            if temp:
-                if temp.vertex == k:
-                    self.graph[i]= temp.next
-                    temp = None
-            while temp:
-                if temp.vertex == k:
-                    break
-                prev = temp
-                temp = temp.next
-  
-            if temp == None:
-                continue
-  
-            prev.next = temp.next
-            temp = None   
+        return None  
        
-g= { "a" : {"b","c"},
-      "b" : {"a","c","d"},
-      "c" : {"a", "b","d"},
-      "d" : {"b","c"},
-}
+g = {"a": {"b","c"},
+      "b": {"a","c"},
+      "c": {"a","b"},
+    }
 
 
 graph_dict = g
