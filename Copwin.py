@@ -1,4 +1,4 @@
-#### Algorithm for determining if a graph is cop-win in Python
+#### Algorithm for determining if a graph is cop-win in Python. Variable g in line 38 can be changed to represent any graph.
 #### By: Amtoj Kaur
 #### This algorithm inspired by the code by Jeremie Turcotte, see https://github.com/tjeremie/Cops-and-robbers/blob/master/Cop%20number/Dismantlable_graphs.wl
 #### This code uses the equivalence relation between cop-win and dismantlable graphs, see Theorem 1.1 in https://math.ryerson.ca/~pralat/papers/2012_cop-win.pdf
