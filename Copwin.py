@@ -81,14 +81,13 @@ class Graph(object):
             prev.next = temp.next
             temp = None   
        
-g = { "a" : {"c"},
-      "b" : {"c", "e"},
-      "c" : {"a", "b", "d", "e"},
-      "d" : {"c"},
-      "e" : {"b", "c"},
-      "f": {},
-      "G": {}
-    }
+g= { "a" : {"b","c"},
+      "b" : {"a","c","d"},
+      "c" : {"a", "b","d"},
+      "d" : {"b","c"},
+}
+
+
 graph_dict = g
 graph=Graph(g)
 
@@ -120,27 +119,6 @@ def flagging(neighbourhood_set, verticeslist):
     subset = False
     return flagged, neighbourhood_set, verticeslist, subset        
 
-
-#user input
-g= { "a" : {"b","c","d"},
-      "b" : {"a","d","e","G"},
-      "c" : {"a", "d","e","f"},
-      "d" : {"a","b","c","f","G"},
-      "e" : {"b","c","f","G"},
-      "f" : {"c","d","e","G"},
-      "G" : {"b","d","e","f"}
-    }
-
-g= { "a" : {"b","f"},
-      "b" : {"a","c"},
-      "c" : {"b", "d"},
-      "d" : {"c","e"},
-      "e" : {"d","f"},
-      "f" : {"a","e"},
-    }
-
-graph_dict = g
-graph=Graph(g)
 
 #Find neighbourhoods
 verticeslist = graph.all_vertices()
